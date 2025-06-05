@@ -5,7 +5,6 @@ edition = "2021"
 
 [dependencies]
 burn = { version = "0.17.1",  default-features = false, features = ["ndarray"] } # Backend must be ndarray
-bincode = "1"
 
 [build-dependencies]
 burn-import = { version = "0.17.1" }

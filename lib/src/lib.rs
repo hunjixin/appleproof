@@ -2,7 +2,7 @@ mod model;
 
 use burn::{
     backend::NdArray,
-    tensor::{Tensor, TensorData},
+    tensor::{activation::sigmoid, Tensor, TensorData},
 };
 use model::Model;
 
@@ -13,10 +13,12 @@ pub fn has_apple(image_slice: Vec<u8>) -> bool {
     let device = BackendDevice::default();
     let model: Model<Backend> = Model::default();
     let output = run_model(&model, &device, image_slice);
-    let output_data = output.into_data();
-    let data: Vec<f32> = output_data.into_vec().unwrap();
-
-    data[0] > 0.5
+    let prob_vec: Vec<f32> = sigmoid(output)
+        .into_data()
+        .convert::<f32>()
+        .to_vec()
+        .unwrap(); // apply sigmoid to logit
+    prob_vec[0] > 0.8
 }
 
 fn run_model(model: &Model<NdArray>, device: &BackendDevice, input: Vec<u8>) -> Tensor<Backend, 2> {

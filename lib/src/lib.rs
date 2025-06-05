@@ -4,7 +4,7 @@ use burn::{
     backend::NdArray,
     tensor::{activation::sigmoid, Tensor, TensorData},
 };
-use model::Model;
+use model::apple_detector::Model;
 
 type Backend = NdArray<f32>;
 type BackendDevice = <Backend as burn::tensor::backend::Backend>::Device;

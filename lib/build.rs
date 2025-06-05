@@ -13,19 +13,17 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
-    // Put `memory.x` in our output directory and ensure it's
-    // on the linker search path.
     let out = &PathBuf::from(env::var_os("OUT_DIR").unwrap());
     println!("cargo:rustc-link-search={}", out.display());
     generate_model();
 }
 
 fn generate_model() {
-    // Generate the model code from the ONNX file.
     ModelGen::new()
         .input("../applemodel/apple_detector.onnx")
-        .out_dir("./src/model/")
+        .out_dir("model/")
         .record_type(RecordType::Bincode)
         .embed_states(true)
         .run_from_script();
+    println!("cargo:warning=gen model successfully!");
 }

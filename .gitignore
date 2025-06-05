@@ -4,10 +4,12 @@
 # Cargo config
 .cargo
 
+dataset
 # Profile-guided optimization
 /tmp
 pgo-data.profdata
-
+apple_detector.onnx
+apple_detector.bin
 # MacOS nuisances
 .DS_Store
 

@@ -1,22 +1,27 @@
-use alloy_sol_types::sol;
+mod model;
 
-sol! {
-    /// The public values encoded as a struct that can be easily deserialized inside Solidity.
-    struct PublicValuesStruct {
-        uint32 n;
-        uint32 a;
-        uint32 b;
-    }
+use burn::{
+    backend::NdArray,
+    tensor::{Tensor, TensorData},
+};
+use model::Model;
+
+type Backend = NdArray<f32>;
+type BackendDevice = <Backend as burn::tensor::backend::Backend>::Device;
+
+pub fn has_apple(image_slice: Vec<u8>) -> bool {
+    let device = BackendDevice::default();
+    let model: Model<Backend> = Model::default();
+    let output = run_model(&model, &device, image_slice);
+    let output_data = output.into_data();
+    let data: Vec<f32> = output_data.into_vec().unwrap();
+
+    data[0] > 0.5
 }
 
-/// Compute the n'th fibonacci number (wrapping around on overflows), using normal Rust code.
-pub fn fibonacci(n: u32) -> (u32, u32) {
-    let mut a = 0u32;
-    let mut b = 1u32;
-    for _ in 0..n {
-        let c = a.wrapping_add(b);
-        a = b;
-        b = c;
-    }
-    (a, b)
+fn run_model(model: &Model<NdArray>, device: &BackendDevice, input: Vec<u8>) -> Tensor<Backend, 2> {
+    // Define the tensor
+    let tensor_data = TensorData::from_bytes(input, [1, 3, 128, 128], burn::tensor::DType::F32);
+    let input = Tensor::<Backend, 4>::from_data(tensor_data, device);
+    model.forward(input)
 }

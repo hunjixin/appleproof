@@ -1,11 +1,11 @@
 [package]
 version = "0.1.0"
-name = "fibonacci-script"
+name = "appleproof-script"
 edition = "2021"
-default-run = "fibonacci"
+default-run = "appleproof"
 
 [[bin]]
-name = "fibonacci"
+name = "appleproof"
 path = "src/bin/main.rs"
 
 [[bin]]
@@ -24,8 +24,10 @@ clap = { version = "4.0", features = ["derive", "env"] }
 tracing = "0.1.40"
 hex = "0.4.3"
 alloy-sol-types = { workspace = true }
-fibonacci-lib = { path = "../lib" }
 dotenv = "0.15.0"
+burn = { version = "0.17.1",  default-features = false, features = ["ndarray"] } # Backend must be ndarray
+image = "0.24"
+appleproof-lib = { path = "../lib" }
 
 [build-dependencies]
 sp1-build = "5.0.0"

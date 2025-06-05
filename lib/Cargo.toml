@@ -1,7 +1,11 @@
 [package]
-name = "fibonacci-lib"
+name = "appleproof-lib"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-alloy-sol-types = { workspace = true }
+burn = { version = "0.17.1",  default-features = false, features = ["ndarray"] } # Backend must be ndarray
+bincode = "1"
+
+[build-dependencies]
+burn-import = { version = "0.17.1" }

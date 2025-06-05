@@ -1,14 +1,9 @@
 [package]
 version = "0.1.0"
-name = "fibonacci-program"
+name = "appleproof-program"
 edition = "2021"
 
 [dependencies]
 alloy-sol-types = { workspace = true }
-sp1-zkvm = "5.0.0"
-embedded-alloc = "0.6.0" # Only if there is no default allocator for your chip
-burn = { version = "0.17", default-features = false, features = ["ndarray"] } # Backend must be ndarray
-
-
-[build-dependencies]
-burn-import = { version = "0.17" }
+sp1-zkvm = {version="5.0.0", features=["embedded"]}
+appleproof-lib = { path = "../lib" }

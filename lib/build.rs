@@ -8,8 +8,7 @@
 //! updating `memory.x` ensures a rebuild of the application with the
 //! new memory settings.
 
-use burn_import::burn::graph::RecordType;
-use burn_import::onnx::ModelGen;
+use burn_import::onnx::{ModelGen, RecordType};
 use std::env;
 use std::path::PathBuf;
 
@@ -24,8 +23,8 @@ fn main() {
 fn generate_model() {
     // Generate the model code from the ONNX file.
     ModelGen::new()
-        .input("src/model/apple_detector.onnx")
-        .out_dir("/Users/waylon/code/appleproof/program/src/model/")
+        .input("../applemodel/apple_detector.onnx")
+        .out_dir("./src/model/")
         .record_type(RecordType::Bincode)
         .embed_states(true)
         .run_from_script();

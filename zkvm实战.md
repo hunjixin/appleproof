@@ -13,10 +13,9 @@
 
 > **“在不暴露信息本身的前提下，验证某件事是真的。”**
 
-![Image](https://github.com/user-attachments/assets/ca61a46e-49c4-40e1-9c9c-831dfdd21433)
+![appleproof](https://private-user-images.githubusercontent.com/41407352/452123059-7fd69b7e-e9ad-4063-a4f0-c09cf8264a38.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDkxNzQyOTIsIm5iZiI6MTc0OTE3Mzk5MiwicGF0aCI6Ii80MTQwNzM1Mi80NTIxMjMwNTktN2ZkNjliN2UtZTlhZC00MDYzLWE0ZjAtYzA5Y2Y4MjY0YTM4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA2MDYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjA2VDAxMzk1MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTM5MGZlZTE4MzAxMTg2YzcyM2JkOTAzOTM4ZDU4OWYwNGUzZGIyMzEzNTY1MTNkMGI4YTkwZDc2NzQwM2Q4ODEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.iD3eqWRPUXaV2S9a5KB5H_5r_m6atcrpbD4WA8mD2mE)
 
 在现实中，这种技术已经被广泛用于隐私保护、区块链、防伪溯源、身份验证等场景中。我们以“证明朋友拥有一个苹果”为例，分四个层次逐步抽象，引入更复杂的实际应用。
-
 
 ## 第一步：外部描述——“这个东西看起来像苹果”
 
@@ -46,8 +45,8 @@ ZK 装置对这些信息生成**零知识证明**，你无需看到具体内容�
 * **描述空间太小**，恶意伪造者可以“猜中”
 * 比如，一个番茄也可能有类似描述...
 
-| 特征   | 苹果 | 番茄 | 洋李子 | 山楂｜
-| ---- | -- | -- | --- |--- |
+| 特征   | 苹果 | 番茄 | 洋李子 | 山楂
+| ---- | -- | -- | -- | -- |
 | 红色圆形 | ✅  | ✅  | ✅   | ✅   |
 | 带果柄  | ✅  | ❌  | ❌   | ✅   |
 | 果香味  | ✅  | ✅  | ❌   | ✅   |
@@ -91,7 +90,9 @@ ZK 装置在不暴露原始生物数据的前提下，验证这些复杂的科�
 
 ➡️ **所以我们需要一种方法，不依赖某些局部特征，而是整体识别“这就是苹果”**
 
-![](https://upload.wikimedia.org/wikipedia/commons/7/7f/Apple_Genome_LTR_Red_Phenotype.png)
+![苹果基因](https://upload.wikimedia.org/wikipedia/commons/7/7f/Apple_Genome_LTR_Red_Phenotype.png)
+
+<img src="https://t15.baidu.com/it/u=509305435,1290056416&fm=225&app=113&f=JPEG?w=1279&h=720&s=07387B8450D1DDDED982D4EA03003011">
 
 ### 现实案例
 **新冠检测隐私保护**（瑞士HealthChain项目）：
@@ -124,6 +125,7 @@ ZK 装置在不暴露原始生物数据的前提下，验证这些复杂的科�
 
 类似地，也可以对 DNA、光谱数据做多模态学习，统一识别。
 
+![zkml](https://private-user-images.githubusercontent.com/41407352/452122790-8bb899a9-69b2-493f-a523-8be3ddca1ee5.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDkxNzQyMTYsIm5iZiI6MTc0OTE3MzkxNiwicGF0aCI6Ii80MTQwNzM1Mi80NTIxMjI3OTAtOGJiODk5YTktNjliMi00OTNmLWE1MjMtOGJlM2RkY2ExZWU1LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA2MDYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjA2VDAxMzgzNlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTk1YjVkOTJlY2U3ODQ2MTI5YjNiMDE3ZGMyMjFkNzFmNzg2ODFiNzI0MTI1MGQ4NGE2Yzc3MmNjOWJiYzAyYjMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.zM2R1r9ydk46AEAw7SVWBvYDbxWT7uqJ_WDC_bznERo)
 ### ✅ 解决的问题：
 
 * 不再依赖特定位置、特定点位
@@ -135,7 +137,6 @@ ZK 装置在不暴露原始生物数据的前提下，验证这些复杂的科�
 > 即使模型确认这是一个苹果，**我们还是不知道这个苹果是否属于“我的朋友”**
 
 ➡️ **所以我们最后需要解决“归属”的问题——证明“这确实是他拥有的苹果”**
-
 
 ### 现实案例  
 🚗 **自动驾驶事故验证**（特斯拉2023专利）：

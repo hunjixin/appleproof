@@ -14,6 +14,7 @@ use std::path::PathBuf;
 
 fn main() {
     let out = &PathBuf::from(env::var_os("OUT_DIR").unwrap());
+    println!("cargo:warning=output={}", out.display());
     println!("cargo:rustc-link-search={}", out.display());
     generate_model();
 }

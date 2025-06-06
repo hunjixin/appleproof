@@ -64,7 +64,11 @@ fn main() {
 
         let expected_is_apple = appleproof_lib::has_apple(image_slice);
         assert_eq!(is_apple, expected_is_apple);
-        println!("Values are correct!");
+        if is_apple {
+            println!("Is apple !");
+        } else {
+            println!("Not apple !");
+        }
 
         // Record the number of cycles executed.
         println!("Number of cycles: {}", report.total_instruction_count());
